@@ -137,7 +137,7 @@ impl WasmPolicyBuilder {
         println!("cargo:rustc-env=OUT_DIR={out_dir}");
         let out_dir = Path::new(&out_dir).join("opa");
 
-        let mut opa_cmd = Command::new(&opa_executable);
+        let mut opa_cmd = Command::new(opa_executable);
 
         let mut input_paths = Vec::new();
 
@@ -176,7 +176,7 @@ impl WasmPolicyBuilder {
         }
 
         let output_file_name = self.name;
-        let output_file_path = out_dir.join(&format!("{output_file_name}.tar.gz"));
+        let output_file_path = out_dir.join(format!("{output_file_name}.tar.gz"));
 
         opa_cmd.args([
             "build",
